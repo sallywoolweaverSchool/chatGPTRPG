@@ -1,7 +1,7 @@
 import requests
 from dalleimages import Dalle
-API_KEY = "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"
-PROMPT = "Generate an origin story for a fighter in a RPG game. It should be at least 500 words."
+API_KEY = "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"
+PROMPT = "Generate an origin story for a fighter in a RPG game. It should be at least 500 words. Give the main character a name."
 
 def generate_story():
     response = requests.post(

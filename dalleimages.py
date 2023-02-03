@@ -42,7 +42,7 @@ class Dalle:
         cv2.destroyAllWindows()
 
     def __init__(self, pr):
-        api_key = "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"
+        api_key = "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"
         prompt = pr
         self.QUERY_URL = "https://api.openai.com/v1/images/generations"
         image_url = self.generate_image(prompt, api_key)
