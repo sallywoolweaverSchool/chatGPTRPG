@@ -48,7 +48,7 @@ class Dalle:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
         # Save the image
         cv2.imwrite(file_path, image)
-        print("image saved")
+        #print("image saved")
         
     def __init__(self, pr):
         api_key = "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"

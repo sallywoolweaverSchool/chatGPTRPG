@@ -77,6 +77,7 @@ if __name__ == "__main__":
     print("7. Politics")
     print("8. Superhero")
     print("9. Cyberpunk")
+    print("10. Mystery")
     prompt_choice = (int)(input("Enter the number of your choice:\n"))
     if(prompt_choice==1):
         PROMPT += 'A story set in a world of magic, mythical creatures, and ancient civilizations, with a chosen hero on a quest to save the world from an evil force.'
@@ -96,7 +97,7 @@ if __name__ == "__main__":
         PROMPT += 'A story set in a world of superheroes and villains, where the player character must use their powers and abilities to stop the world\'s greatest threats and become the greatest hero of all time.'
     elif(prompt_choice==9):
         PROMPT += 'A story set in a post-modern world of technology, where the player character must navigate the dangers of cyberspace and stop a cyber-terrorist from destroying the world\'s infrastructure.'
-    elif(prompt_choice==9):
+    elif(prompt_choice==10):
         PROMPT += 'A mystery set in a small, isolated town where strange events have been happening and the player character is tasked with solving the puzzles and uncovering the truth behind the mysterious happenings before it\'s too late.'
     else:
         print("Error\n")
