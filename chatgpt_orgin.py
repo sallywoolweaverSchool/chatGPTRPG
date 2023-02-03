@@ -4,7 +4,12 @@ from gtts import gTTS
 from dalleimages import Dalle
 import threading
 import pygame
-API_KEY = "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"
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.environ.get("API_KEY")
 
 def generate_story():
     response = requests.post(

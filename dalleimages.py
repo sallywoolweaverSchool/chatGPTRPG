@@ -2,9 +2,14 @@ import requests
 import cv2
 import numpy as np
 import json
+import os
+from dotenv import load_dotenv
 
 class Dalle:
     QUERY_URL = "https://api.openai.com/v1/images/generations"
+
+    load_dotenv()
+    
 
     def generate_image(self, prompt, api_key):
         headers = {
@@ -51,7 +56,7 @@ class Dalle:
         #print("image saved")
         
     def __init__(self, pr):
-        api_key = "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"
+        api_key = os.environ.get("API_KEY")
         prompt = pr
         self.QUERY_URL = "https://api.openai.com/v1/images/generations"
         image_url = self.generate_image(prompt, api_key)
