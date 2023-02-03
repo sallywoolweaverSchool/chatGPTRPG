@@ -112,4 +112,5 @@ if __name__ == "__main__":
     text_thread = threading.Thread(target=speak_text, args=(story,))
     text_thread.start()
     dis_story(summarized_story)
+    save_story(story)
     text_thread.join()
