@@ -5,7 +5,6 @@ from dalleimages import Dalle
 import threading
 import pygame
 API_KEY = "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"
-PROMPT = "Generate an origin story for a fighter in a RPG game. It should be at least 500 words. Give the main character a name. It should be PG-13"
 
 def generate_story():
     response = requests.post(
@@ -54,20 +53,53 @@ def speak_textPYTT(story):
     engine = pyttsx3.init()
     engine.say(story)
     engine.runAndWait()
-    print('finished talking')
+    #print('finished talking')
 
 def speak_text(story):
-    print("test")
-    tts = gTTS(text=story, lang='en')
+    tts = gTTS(text=story, lang='en', slow=False)
     tts.save("story.mp3")
     pygame.mixer.init()
     pygame.mixer.music.load("story.mp3")
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         pygame.time.wait(1000)
-    print('finished talking')
+
     
 if __name__ == "__main__":
+    PROMPT = "Generate an origin story for a main character in a RPG game. It should be at least 500 words. Give the main character a name. It should be PG-13. It should be set in:"
+    print("Please choose a story prompt:")
+    print("1. Fantasy")
+    print("2. Post-apocalyptic")
+    print("3. Science fiction")
+    print("4. Historical")
+    print("5. Dystopian")
+    print("6. Mythical")
+    print("7. Politics")
+    print("8. Superhero")
+    print("9. Cyberpunk")
+    prompt_choice = (int)(input("Enter the number of your choice:\n"))
+    if(prompt_choice==1):
+        PROMPT += 'A story set in a world of magic, mythical creatures, and ancient civilizations, with a chosen hero on a quest to save the world from an evil force.'
+    elif(prompt_choice==2):
+        PROMPT += 'A story set in a world that has been destroyed by a catastrophic event, with the player character navigating a harsh, new world filled with danger and uncertainty.'   
+    elif(prompt_choice==3):
+        PROMPT +='A story set in a futuristic world filled with advanced technology, interstellar travel, and otherworldly beings.'
+    elif(prompt_choice==4):
+        PROMPT += ' story set in a specific time and place in history, allowing the player to explore a different culture and way of life while also engaging in battles and completing quests. It should be set in a factual setting on Earth.'
+    elif(prompt_choice==5):
+        PROMPT += 'A story set in a dystopian society, where the player character must navigate through a totalitarian government and rebel against it to bring freedom to the people.'
+    elif(prompt_choice==6):
+        PROMPT += 'A story set in a world of mythical creatures and legends, where the player character must collect powerful artifacts and complete challenges to become a legend themselves.'
+    elif(prompt_choice==7):
+        PROMPT += 'A story set in a world of high stakes political intrigue, where the player character must gather information, make alliances, and engage in battles of wit to achieve their ultimate goal.'
+    elif(prompt_choice==8):
+        PROMPT += 'A story set in a world of superheroes and villains, where the player character must use their powers and abilities to stop the world\'s greatest threats and become the greatest hero of all time.'
+    elif(prompt_choice==9):
+        PROMPT += 'A story set in a post-modern world of technology, where the player character must navigate the dangers of cyberspace and stop a cyber-terrorist from destroying the world\'s infrastructure.'
+    elif(prompt_choice==9):
+        PROMPT += 'A mystery set in a small, isolated town where strange events have been happening and the player character is tasked with solving the puzzles and uncovering the truth behind the mysterious happenings before it\'s too late.'
+    else:
+        print("Error\n")
     story = generate_story()
     print(story)
     summarized_story = summarize_story(story)

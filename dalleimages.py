@@ -48,11 +48,13 @@ class Dalle:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
         # Save the image
         cv2.imwrite(file_path, image)
+        print("image saved")
         
     def __init__(self, pr):
         api_key = "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"
         prompt = pr
         self.QUERY_URL = "https://api.openai.com/v1/images/generations"
         image_url = self.generate_image(prompt, api_key)
-        self.display_image(image_url)
         self.save_image(image_url, "generated_image.jpg")
+        self.display_image(image_url)
+        
