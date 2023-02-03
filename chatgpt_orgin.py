@@ -71,7 +71,7 @@ def speak_text(story):
 
     
 if __name__ == "__main__":
-    PROMPT = "Generate an origin story for a main character in a RPG game. It should be at least 500 words. Give the main character a name. It should be PG-13. It should be set in:"
+    PROMPT = "Generate an origin story for a main character in a RPG game. It must be at least 500 words. Give the main character a name. It should be PG-13. It should be set in:"
     print("Please choose a story prompt:")
     print("1. Fantasy")
     print("2. Post-apocalyptic")
@@ -111,6 +111,6 @@ if __name__ == "__main__":
     summarized_story = summarize_story(story)
     text_thread = threading.Thread(target=speak_text, args=(story,))
     text_thread.start()
-    dis_story(summarized_story)
     save_story(story)
+    dis_story(summarized_story)
     text_thread.join()
